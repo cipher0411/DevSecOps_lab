@@ -46,7 +46,7 @@
 ## Reproduce locally
 
 ```bash
-git clone https://github.com/cipher0411/devsecops-juice-shop-lab && cd devsecops-juice-shop-lab
+git clone https://github.com/cipher0411/DevSecOps_lab && cd DevSecOps_lab
 git clone --depth 1 --branch v20.4.0 https://github.com/juice-shop/juice-shop target/juice-shop
 
 # IaC + policy tests

@@ -1,7 +1,7 @@
 # Gitleaks configuration for this repository.
 # Extends the built-in ruleset. Any allowlist entry must name a reason,
 # an owner and be as narrow as possible (see docs/security-gate-policy.md).
-title = "devsecops-juice-shop-lab"
+title = "DevSecOps_lab"
 
 [extend]
 useDefault = true

@@ -4,9 +4,9 @@
 **Focus:** DevSecOps · Infrastructure as Code · Application Security · CI/CD security · Security testing
 **Lab type:** Defensive, isolated security engineering project
 
-[![ci-security](https://github.com/cipher0411/devsecops-juice-shop-lab/actions/workflows/ci-security.yml/badge.svg)](https://github.com/cipher0411/devsecops-juice-shop-lab/actions/workflows/ci-security.yml)
-[![terraform-security](https://github.com/cipher0411/devsecops-juice-shop-lab/actions/workflows/terraform-security.yml/badge.svg)](https://github.com/cipher0411/devsecops-juice-shop-lab/actions/workflows/terraform-security.yml)
-[![dast-security](https://github.com/cipher0411/devsecops-juice-shop-lab/actions/workflows/dast-security.yml/badge.svg)](https://github.com/cipher0411/devsecops-juice-shop-lab/actions/workflows/dast-security.yml)
+[![ci-security](https://github.com/cipher0411/DevSecOps_lab/actions/workflows/ci-security.yml/badge.svg)](https://github.com/cipher0411/DevSecOps_lab/actions/workflows/ci-security.yml)
+[![terraform-security](https://github.com/cipher0411/DevSecOps_lab/actions/workflows/terraform-security.yml/badge.svg)](https://github.com/cipher0411/DevSecOps_lab/actions/workflows/terraform-security.yml)
+[![dast-security](https://github.com/cipher0411/DevSecOps_lab/actions/workflows/dast-security.yml/badge.svg)](https://github.com/cipher0411/DevSecOps_lab/actions/workflows/dast-security.yml)
 [![Target](https://img.shields.io/badge/Target-OWASP%20Juice%20Shop%20v20.4.0-orange)](https://github.com/juice-shop/juice-shop)
 [![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
 
@@ -39,7 +39,7 @@ Full details: **[findings register](docs/findings-register.md)** ·
 ## Evidence screenshots
 
 Captured from the real runs. The workflow pages are public:
-[Actions](https://github.com/cipher0411/devsecops-juice-shop-lab/actions).
+[Actions](https://github.com/cipher0411/DevSecOps_lab/actions).
 
 | ci-security (all gates green) | dast-security (Terraform → ZAP → destroy) |
 |---|---|
@@ -126,7 +126,7 @@ example.org (control: 406). See
 ## Repository structure
 
 ```text
-devsecops-juice-shop-lab/
+DevSecOps_lab/
 ├── .github/
 │   ├── dependabot.yml
 │   └── workflows/
@@ -156,7 +156,7 @@ devsecops-juice-shop-lab/
 Requirements: Git and Docker. Everything else runs from pinned containers.
 
 ```bash
-git clone https://github.com/cipher0411/devsecops-juice-shop-lab && cd devsecops-juice-shop-lab
+git clone https://github.com/cipher0411/DevSecOps_lab && cd DevSecOps_lab
 
 # Option A - Terraform (what CI does)
 TF='docker run --rm -v '"$PWD"'/terraform:/tf -v /var/run/docker.sock:/var/run/docker.sock -w /tf hashicorp/terraform:1.17.2'
@@ -188,18 +188,6 @@ authorisation.
 - [x] Findings triaged; several remediations retested with before/after evidence
 - [x] Least-privilege workflow permissions; actions and images pinned
 - [x] All claims in this README reflect the repository state
-
-## Interview talking points
-
-- Why "gate what you own, evidence what you don't" beats one global threshold.
-- SAST vs SCA vs secrets vs IaC vs DAST: what each one can and cannot see,
-  and how SAST + DAST corroborated the open redirect.
-- Why a scanner exit code is not a risk assessment (LAB-SAST-06/07 are true
-  positives with low exploitability; LAB-ZAP-06 is a false positive).
-- Enforcing rules of engagement with network isolation instead of tool configuration.
-- Why the pipeline itself is an attack surface: pinned SHAs and digests,
-  token scope, `pull_request_target`.
-- How to show a fix is closed: before/after reports in git history.
 
 ## References
 
